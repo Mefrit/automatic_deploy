@@ -71,7 +71,7 @@ GEM
       ast (~> 2.4.0)
     public_suffix (3.1.0)
     puma (3.12.1)
-    rack (2.0.7)
+    rack (2.2.2)
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
@@ -135,7 +135,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  capybara
+  capybara (~> 3.24)
   erb_lint (~> 0.0.28)
   html_tokenizer (~> 0.0.7)
   puma (~> 3.12)
