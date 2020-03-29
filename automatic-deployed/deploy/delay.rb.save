@@ -1,0 +1,23 @@
+RUBY_VERSION ='2.6.5'
+
+def main 
+	install_ruby
+end
+
+def install_ruby
+ystem('wget','-O','ruby-install-0.7.0.tar.gz','http://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz')
+	system('ls','-l')
+end
+
+if __FILE__ == $0 
+	main
+end
+
+def checkRun (**arg)
+	puts "Running #{arg.join(' ')}"
+	result = system(*args)
+	unless result
+		puts "Comand #{comand} finished with error"
+		exit(1)
+	end
+end

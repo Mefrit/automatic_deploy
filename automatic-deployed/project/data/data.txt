@@ -1,0 +1,5 @@
+1,50,3,11 ,Bragino,Fokina,2,panel ,1102304
+6,60,1,14 ,Zavolga,Aviatorov,6,brick,444433423
+24275,123,3,2,New,New ,12,panel,100000
+40822,1,2,1,Zavolga,Wendiwd,1,1,1123213312
+38905,67,4,1,Centr,lklkl,7,panel,1000

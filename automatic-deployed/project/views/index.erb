@@ -1,0 +1,64 @@
+<div class="row container col-12 ml-5 mt-2">
+    <div class="bg-dark text-light col-6">
+        <h1> Квартиры покупаем</h1>
+        <% @apart_list.each do |elem|%>
+        <% if !elem.delete %> 
+          
+                <div class='row bg-secondary alert m-2 '> <%="</br>" + elem.return_inf  %> " "<a href='/del/<%= elem.id %>'>X</a></div>
+         
+        
+        <% end %>
+        <%end%>
+    </div>
+    <div class="bg-dark text-light col-5">
+        <h1>Заявки оставляем </h1>
+        <% @aplication_list.each do |elem1|%>
+        <% if !elem1.delete %>
+            <div class="bg-secondary m-1 p-1 "><%="</br>" + elem1.return_inf  %><a href='/delAplic/<%= elem1.id %>'> Х</a><a class="btn btn-default" href='/findSame/<%= elem1.id %>'> Подобрать квартиры</a></div>
+            <% end %>
+            <%end%>
+        </div>
+    </div>
+</div>
+
+
+    
+
+<div class="row col-12 mt-5 ml-5 ">
+
+    <div class="col-3 bg-dark  text-light p-2 ">
+        <p>Вывести на экран все заявки заданного района, отсортированные по количеству комнат</p>
+
+        <%= @aplication_list.list_district_aplic %>
+        <form action="/findAplicDistr" method="post">
+
+            <select name="districtAplication">
+                <% @aplication_list.list_district_aplic.each do |value1| %>
+                <option value=<%=value1 %>><%=value1 %></option>
+                <%end%>
+
+            </select>
+            <input type="submit" value="Find" class="btn btn-sml bg-secondary text-light">
+        </form>
+    </div>
+    <div class="col-3 bg-dark  text-light p-2 ">
+        <p>Вывести на экран все квартиры, сгруппированные по району и отсортированные по метражу</p>
+        <form action="/apartamentsDistr" method="post">
+            <input type="submit" value="Показать квартиры" class="btn btn-sml bg-secondary text-light">
+        </form>
+    </div>
+    <div class="col-3 bg-dark  text-light p-1 pt-2" <p>Вывести на экран все квартиры по заданному диапазону стоимости</p>
+        <form action="/getApartcertainValue" method="post">
+            <input type="number" name="min" placeholder="Min cost" />
+            <input type="number" name="max" placeholder="Max cost" />
+            <input type="submit" value="Найти" class="btn btn-sml bg-secondary text-light">
+
+        </form>
+    </div>
+    <div class="col-2 bg-dark  text-light p-2 pl-4">
+        <p>Вывести статистику по каждому району:</p>
+        <form action="statistics" method="post">
+            <input type="submit" value="Посмотреть" class="btn text-light bg-secondary" />
+        </form>
+    </div>
+</div>

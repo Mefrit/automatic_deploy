@@ -1,0 +1,39 @@
+RUBY_VERSION='2.6.5'
+
+require 'tmpdir'
+
+def main 
+	install_ruby
+	install_required_gems
+end
+
+def install_ruby
+	current_dir = Dir.pwd
+	Dir.mktmpdir do |directory|
+		Dir.chdir(directory)
+		check_run('wget','-O','ruby-install-0.7.0.tar.gz','http://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz')
+		check_run('tar', '-xzvf','ruby-install-0.7.0.tar.gz')
+		Dir.chdir('ruby-install-0.7.0')
+		check_run('sudo','make','install')
+	end
+	Dir.chdir('ruby-install-0.7.0')
+	check_run('ruby-install','-l')
+	check_run('ruby-install','--jobs=4','ruby',RUBY_VERSION)
+end
+
+
+def check_run (*args)
+	comand = args.join(' ')
+	result = system(*args)
+	unless result
+		puts "Comand #{command} finished with error"
+		exit(1)
+	end
+end
+
+	def install_required_gems
+
+end
+if __FILE__== $0
+	main
+end

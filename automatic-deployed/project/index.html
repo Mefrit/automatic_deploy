@@ -1,0 +1,56 @@
+<div class="row container ml-5 mt-2">
+    <div class="bg-dark text-light col-6">
+        <h1> Квартиры покупаем</h1>
+        <% @apartList.each do |elem|%>
+        <% if !elem.delete %>
+        <div class='row bg-secondary alert m-2'> <%="</br>" + elem.getInf  %> " "<a href='/del/<%= elem.id %>'>X</a>
+        </div>
+        <% end %>
+        <%end%>
+    </div>
+
+    <div class="bg-dark text-light col-5 ml-5">
+        <h1>Заявки оставляем </h1>
+        <% @aplicationList.each do |elem1|%>
+        <% if !elem1.delete %>
+        <div class=''><%="</br>inf: " + elem1.getInf  %><a href='/delAplic/<%= elem1.id %>'> x</a>
+            <% end %>
+            <%end%>
+        </div>
+    </div>
+</div>
+
+<div class="row col-12 mt-5 ml-5 ">
+
+    <div class="col-3 bg-dark  text-light p-2">
+        <p>Вывести на экран все заявки заданного района, отсортированные по количеству комнат</p>
+
+        <%= @aplicationList.listDistrictAplic %>
+        <form action="/findAplicDistr" method="post">
+
+            <select name="districtAplication">
+                <% @aplicationList.listDistrictAplic.each do |value1| %>
+                <option value=<%=value1 %>><%=value1 %></option>
+                <%end%>
+
+            </select>
+            <input type="submit" value="Find" class="btn btn-sml bg-secondary text-light">
+        </form>
+    </div>
+    <div class="col-2 bg-dark  text-light p-2">
+        <p>Вывести на экран все квартиры, сгруппированные по району и отсортированные по метражу</p>
+        <form action="/apartamentsDistr" method="post">
+            <input type="submit" value="Показать квартиры" class="btn btn-sml bg-secondary text-light">
+        </form>
+    </div>
+    <div class="col-3 bg-dark  text-light p-2" <p>Вывести на экран все квартиры по заданному диапазону стоимости</p>
+        <form action="/getApartcertainValue" method="post">
+            <input type="number" name="min" placeholder="Min cost" />
+            <input type="number" name="max" placeholder="Max cost" />
+            <input type="submit" value="Найти" class="btn btn-sml bg-secondary text-light">
+
+        </form>
+    </div>
+    <div class="col-3 bg-dark  text-light p-2">
+    </div>
+</div>

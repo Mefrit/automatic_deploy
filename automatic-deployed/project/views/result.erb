@@ -1,0 +1,22 @@
+<div class='bg-secondary text-light alert'>
+<%@id_aplic = -1 %>
+<%if @kind_res %>
+    <% @res.each do |elem1|%>    
+        <% if !elem1.delete %>
+            <% if @same_apart %>
+                <div class="row bg-dark mt-2 p-2 text-light"><%="! " + elem1.return_inf   %>  <a class = "pl-2 text-light " href='/same_apartDelApl/<%= elem1.id + '&' + settings.id_aplication  %>'>Выбрать </a></div>
+            <% elsif %>
+                
+                <div class="row bg-dark mt-2 text-light"> <%=": " + elem1.return_inf  %> </div>
+            <%end%>
+        <% end %>  
+    <% end %>     
+
+<%elsif%>
+    <%=settings.all_district_list%>
+    <% @res.each do |keys, elem1|%>
+        <%="</br><div class='row'>Район: <div class='bg-dark pr-2 pl-2'> "  + keys.to_s+ " |  " + "</div>количество предложений продажи  <div class='bg-dark pr-2 pl-2'>" + elem1[0].to_s + "</div>  средняя стоимость  <div class='bg-dark pr-2 pl-2'>" + elem1[1].to_s + "</div> средний метраж <div class='bg-dark pr-2 pl-2 '>" + elem1[2].to_s + "</div><div class='bg-dark pr-2 pl-2 '>потенциальный процент покрытия заявок " + " </div>"%>
+    <% end %>  
+<%end%>
+
+</div>

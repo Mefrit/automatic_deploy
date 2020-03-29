@@ -1,0 +1,10 @@
+x[Unit]
+Description = The simples ruby aplication
+
+[SERVICE]
+
+Enviroment = PATH=
+Type=
+WorkingDirectory = /home/user/classwork/automatic-deployment/deploy
+ExecStart = ruby  /homeasswork/automatic-d
+#ExecStart = bundle exec
