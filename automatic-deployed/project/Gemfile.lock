@@ -62,9 +62,9 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     mustermann (1.0.3)
-    nokogiri (1.10.3)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.3-x64-mingw32)
+    nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     parallel (1.17.0)
     parser (2.6.3.0)
@@ -135,7 +135,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  capybara
+  capybara (~> 3.24)
   erb_lint (~> 0.0.28)
   html_tokenizer (~> 0.0.7)
   puma (~> 3.12)
